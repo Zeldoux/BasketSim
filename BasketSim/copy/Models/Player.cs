@@ -325,6 +325,5 @@ namespace BasketSim.Core.Models
                 ? tendency
                 : ZoneTendency.Neutral;
         }
-
     }
 }
