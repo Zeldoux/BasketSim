@@ -225,4 +225,21 @@ namespace BasketSim.Core.Models
         public void RecordTimeoutUsed(int currentQuarter, int secondsRemaining)
         {
             TimeoutsRemaining--;
-            TimeoutsUsedI
+            TimeoutsUsedInCurrentQuarter++;
+
+            if (currentQuarter == 4 && secondsRemaining <= 180)
+            {
+                TimeoutsUsedInLastThreeMinutes++;
+            }
+        }
+
+        /// <summary>
+        /// Réinitialise le compteur de timeouts du quart-temps.
+        /// À appeler au début de chaque nouveau quart-temps.
+        /// </summary>
+        public void ResetQuarterlyTimeouts()
+        {
+            TimeoutsUsedInCurrentQuarter = 0;
+        }
+    }
+}
